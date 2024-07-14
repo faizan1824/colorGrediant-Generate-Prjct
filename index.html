@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        section {
+            text-align: center;
+        }
+
+        #myButton, #myButton2 {
+            height: 50px;
+            width: 140px;
+            margin: 10px;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #051937;
+            color: white;
+            border-radius: 15px;
+            border: none;
+            outline: none;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            transition: transform 0.1s ease, background-color 0.3s ease;
+        }
+
+        #myButton2 {
+            background-color: #008393;
+        }
+
+        #myButton:active, #myButton2:active {
+            transform: translateY(4px);
+        }
+
+        .copyCode {
+            color: white;
+            margin-top: 20px;
+        }
+
+        .Generate {
+            width: 300px;
+            background-color: white;
+            opacity: 0.8;
+            margin-top: 5px;
+            border: none;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .Generate p {
+            font-weight: bold;
+            color: black;
+            word-wrap: break-word;
+        }
+    </style> -->
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <div>
+            <button id="myButton">#051937</button>
+            <button id="myButton2">#008393</button>
+        </div>
+        <h2 class="copyCode">Copy Color:</h2>
+        <div class="Generate">
+            <p class="Change_text">background-image: linear-gradient(to right, rgb(92, 145, 229), rgb(152, 63, 198))</p>
+        </div>
+    </section>
+    <script>
+        
+        let btn1 = document.getElementById("myButton");
+        let btn2 = document.getElementById("myButton2");
+        let textChange = document.querySelector(".Change_text");
+        let rgb1 = "#051937";
+        let rgb2 = "#008393";
+
+        const getHexValue = () => {
+            let myHexvalue = "123456789abcdef";
+            let colors = "#";
+            for (let i = 0; i < 6; i++) {
+                colors = colors + myHexvalue[Math.floor(Math.random() * 15)];
+            }
+            return colors;
+        };
+
+        const handleButton1 = () => {
+            rgb1 = getHexValue();
+            btn1.innerText = rgb1;
+            btn1.style.backgroundColor = rgb1;
+            document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1}, ${rgb2})`;
+            textChange.innerHTML = `background-image: linear-gradient(to right, ${rgb1}, ${rgb2})`;
+        };
+
+        const handleButton2 = () => {
+            rgb2 = getHexValue();
+            btn2.innerText = rgb2;
+            btn2.style.backgroundColor = rgb2;
+            document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1}, ${rgb2})`;
+            textChange.innerHTML = `background-image: linear-gradient(to right, ${rgb1}, ${rgb2})`;
+        };
+
+        btn1.addEventListener("click", handleButton1);
+        btn2.addEventListener("click", handleButton2);
+    </script>
+</body>
+
+</html>
